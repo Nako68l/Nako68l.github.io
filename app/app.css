@@ -1,0 +1,10 @@
+/* app css stylesheet */
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+html{
+  font-family: 'Open Sans', sans-serif;
+}

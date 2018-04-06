@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="dairy" >
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Diary App</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+
+        <base href="/">
+
+        <link rel="stylesheet" href="app.css">
+        <link rel="stylesheet" href="main/todo/todo.css">
+        <link rel="stylesheet" href="main/items/items.css">
+        <link rel="stylesheet" href="main/comments/comments.css">
+    </head>
+    <body>
+        <div ng-view></div>
+
+        <!-- In production use:
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
+        -->
+        <script src="bower_components/angular/angular.js"></script>
+        <script src="bower_components/angular-route/angular-route.js"></script>
+
+        <script src="app.js"></script>
+
+        <script src="services/items-storage/items-storage.module.js"></script>
+        <script src="services/items-storage/items-storage.service.js"></script>
+
+        <script src="main/main.module.js"></script>
+        <script src="main/todo/todo.module.js"></script>
+        <script src="main/todo/todo.component.js"></script>
+        <script src="main/comments/comments.module.js"></script>
+        <script src="main/comments/comments.component.js"></script>
+        <script src="main/items/items.module.js"></script>
+        <script src="main/items/items.component.js"></script>
+    </body>
+</html>

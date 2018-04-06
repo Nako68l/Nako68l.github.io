@@ -1,0 +1,13 @@
+{
+  "name": "angular-seed",
+  "description": "A starter project for AngularJS",
+  "version": "0.0.0",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "angular": "~1.6.9",
+    "angular-route": "~1.6.9",
+    "angular-loader": "~1.6.9",
+    "angular-mocks": "~1.6.9"
+  }
+}
