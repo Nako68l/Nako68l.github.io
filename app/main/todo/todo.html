@@ -1,1 +1,4 @@
-<items></items>
+<div class="todo-wrapper">
+    <items selected-item="$ctrl.selectedItem" item-position-number="$ctrl.itemPositionNumber"></items>
+    <comments item="$ctrl.selectedItem" item-position-number="$ctrl.itemPositionNumber" ng-if="$ctrl.selectedItem"></comments>
+</div>

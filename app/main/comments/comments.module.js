@@ -1,1 +1,1 @@
-angular.module('comments', []);
+angular.module('comments', ['commentsStorageService', 'ctrlEnter', 'scrollToBottom']);

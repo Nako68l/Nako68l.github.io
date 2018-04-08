@@ -1,1 +1,1 @@
-angular.module('todo', ['items']);
+angular.module('todo', ['items', 'comments']);

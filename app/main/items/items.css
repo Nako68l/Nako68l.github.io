@@ -5,6 +5,7 @@
     height: 425px;
     padding: 20px 25px;
     overflow: overlay;
+    display: inline-block;
 }
 
 .items-title{
@@ -33,18 +34,18 @@
 
 .item-input{
     padding: 0 9px;
-    width: calc(290px - 2px - 18px);
-    height: calc(37px - 2px);
+    border: 1px solid #CCCCCC;
     border-radius: 3px;
-    border: 1pt solid #CCCCCC;
+    width: calc(290px - 1px*2 - 9px*2);
+    height: calc(37px - 1px*2);
 }
 
 .add-new-btn{
     float: right;
     color: #fff;
-    width: 132px;
-    height: 39px;
     border-radius: 3px;
+    width: 132px;
+    height: 37px;
     border:none;
     background-color: #27CCC0;
 }
@@ -63,11 +64,12 @@
     align-items: center;
 }
 
-.item-title{
+.item-name{
     max-width: 274px;
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
+    font-weight: bold;
 }
 
 .item-chip{
@@ -79,11 +81,11 @@
 }
 
 .delete-btn{
-    color: #FF305A;
-    width: calc(97px - 2px);
-    height: calc(34px - 2px);
     border-radius: 3px;
-    border: 1pt solid #FF3159;
+    border: 1px solid #FF3159;
+    width: calc(97px - 1px*2);
+    height: calc(34px - 1px*2);
+    color: #FF305A;
     background-color: #fff;
 }
 

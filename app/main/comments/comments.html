@@ -1,0 +1,17 @@
+<div class="comments-wrapper">
+    <div class="comments-title">Comments #{{$ctrl.itemPositionNumber}}</div>
+    <div class="comments-list-wrapper"
+         scroll-to-bottom="$ctrl.comments">
+        <div class="comment-entry"
+             ng-repeat="comment in $ctrl.comments track by comment.id">
+            <div class="comment-logo" style="background-color: {{comment.avatarColor}}"></div>
+            <div class="comment-content">{{comment.value}}</div>
+        </div>
+    </div>
+    <div class="input-wrapper">
+        <div class="comment-logo"></div>
+        <textarea class="comments-input"
+                  ctrl-enter="$ctrl.addComment()"
+                  ng-model="$ctrl.currentComment"></textarea>
+    </div>
+</div>

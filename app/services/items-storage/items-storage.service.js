@@ -4,7 +4,7 @@ angular.module('itemsStorageService')
 itemsStorageService.$inject = ['$window'];
 
 function itemsStorageService($window) {
-    const itemsKey = 'items';
+    const storageKey = 'items';
 
     return {
         saveOne: saveItemToLS,
@@ -13,18 +13,19 @@ function itemsStorageService($window) {
     };
 
     function saveItemToLS(item) {
-        let items = angular.fromJson($window.localStorage.getItem(itemsKey)) || [];
+        let items = angular.fromJson($window.localStorage.getItem(storageKey)) || [];
         items.push(item);
-        $window.localStorage.setItem(itemsKey, angular.toJson(items));
+        $window.localStorage.setItem(storageKey, angular.toJson(items));
     }
 
     function getAllItemsFromLS() {
-        return angular.fromJson($window.localStorage.getItem(itemsKey));
+        return angular.fromJson($window.localStorage.getItem(storageKey));
     }
 
     function removeItemFromLS(id) {
-        let items = angular.fromJson($window.localStorage.getItem(itemsKey));
+        let items = angular.fromJson($window.localStorage.getItem(storageKey));
         let filteredItems = items.filter(el => !angular.equals(el.id, id));
-        $window.localStorage.setItem(itemsKey, angular.toJson(filteredItems));
+        $window.localStorage.setItem(storageKey, angular.toJson(filteredItems));
+        $window.localStorage.removeItem('comments' + '_' + id);
     }
 }

@@ -3,16 +3,16 @@
     <div class="add-item-wrapper">
         <input class="item-input" type="text"
                ng-keyup="$event.keyCode == 13 && $ctrl.addItem()"
-               ng-model="$ctrl.item">
+               ng-model="$ctrl.currentItem">
         <button class="add-new-btn" ng-click="$ctrl.addItem()">Add new</button>
     </div>
     <ul>
         <li class="item"
             ng-repeat="item in $ctrl.items track by item.id"
-            ng-class="{'selected-item': $ctrl.selectedItem == item.id}"
-            ng-click="$ctrl.selectItem(item.id)">
+            ng-class="{'selected-item': $ctrl.selectedItem.id === item.id}"
+            ng-click="$ctrl.selectItem(item)">
             <span class="item-text-wrapper">
-                <span class="item-title">{{ item.value }}</span>
+                <span class="item-name">{{ item.value }}</span>
                 <span class="item-chip">{{item.commentsCount}}</span>
             </span>
             <button class="delete-btn"

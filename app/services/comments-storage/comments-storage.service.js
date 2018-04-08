@@ -1,29 +1,35 @@
-angular.module('itemsStorageService')
-    .factory('itemsStorageService', itemsStorageService);
+angular.module('commentsStorageService')
+    .factory('commentsStorageService', commentsStorageService);
 
-itemsStorageService.$inject = ['$window'];
+commentsStorageService.$inject = ['$window'];
 
-function itemsStorageService($window) {
-    const itemsKey = 'items';
+function commentsStorageService($window) {
+    const storageKey = 'comments';
 
     return {
-        saveOne: saveItemToLS,
-        getAll: getAllItemsFromLS,
-        remove: removeItemFromLS,
+        saveComment: addCommentToItemInLS,
+        getAllByItemId: getAllCommentsForItemFromLS,
     };
 
-    function saveItemToLS(data) {
-        let items = $window.localStorage.getItem(itemsKey);
-        $window.localStorage.setItem(itemsKey, items + angular.toJson(data))
+    function getAllCommentsForItemFromLS(id) {
+        return angular.fromJson($window.localStorage.getItem(storageKey + '_' + id));
     }
 
-    function getAllItemsFromLS() {
-        return angular.toJson($window.localStorage.getItem(itemsKey));
+    function addCommentToItemInLS(itemId, comment) {
+        updateCommentsCount(itemId);
+        let comments = angular.fromJson($window.localStorage.getItem(storageKey + '_' + itemId)) || [];
+        comments.push(comment);
+        $window.localStorage.setItem(storageKey + '_' + itemId, angular.toJson(comments))
     }
 
-    function removeItemFromLS(id) {
-        let items = angular.fromJson($window.localStorage.getItem(itemsKey));
-        let filteredItems = items.filter(el => !angular.equals(el.id, id));
-        $window.localStorage.setItem(itemsKey, filteredItems)
+    function updateCommentsCount(itemId) {
+        const itemsStorageKey = 'items';
+        let items = angular.fromJson($window.localStorage.getItem(itemsStorageKey));
+        items.map(item => {
+            if (item.id === itemId) {
+                item.commentsCount += 1;
+            }
+        });
+        $window.localStorage.setItem(itemsStorageKey, angular.toJson(items));
     }
 }

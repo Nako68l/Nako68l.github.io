@@ -1,0 +1,8 @@
+.todo-wrapper{
+    display: flex;
+    margin: 35px 30px
+}
+
+items{
+    margin-right: 25px;
+}

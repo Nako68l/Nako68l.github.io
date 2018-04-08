@@ -7,6 +7,14 @@ angular.module('todo')
         controller: TodoController
     });
 
-function TodoController() {
+TodoController.$inject = ['$scope'];
+
+function TodoController($scope) {
     let vm = this;
+    vm.$onInit = onInit;
+
+    function onInit(){
+        vm.selectedItem = angular.fromJson(localStorage.getItem('selectedItem'));
+        vm.selectedItemPosition = localStorage.getItem('selectedItemPosition');
+    }
 }
