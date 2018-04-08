@@ -1,0 +1,18 @@
+.sidebar-wrapper{
+    height: 100%;
+    background-color: #2B2F3E;
+    width: 271px;
+    display: inline-block;
+    padding: 25px;
+}
+
+.sidebar-title{
+    max-width: 165px;
+    font-size: 36px;
+    color: #fff;
+}
+
+.sidebar-description{
+    color: #808080;
+    font-size: 18px;
+}

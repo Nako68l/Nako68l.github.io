@@ -12,12 +12,18 @@
         <base href="/">
 
         <link rel="stylesheet" href="app.css">
+
         <link rel="stylesheet" href="main/todo/todo.css">
         <link rel="stylesheet" href="main/items/items.css">
         <link rel="stylesheet" href="main/comments/comments.css">
+
+        <link rel="stylesheet" href="common/sidebar/sidebar.css">
     </head>
     <body>
-        <div ng-view></div>
+        <div class="container">
+            <sidebar></sidebar>
+            <div ng-view class="view-container"></div>
+        </div>
 
         <!-- In production use:
         <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
@@ -25,6 +31,8 @@
         <script src="bower_components/angular/angular.js"></script>
         <script src="bower_components/angular-route/angular-route.js"></script>
 
+        <script src="common/sidebar/sidebar.module.js"></script>
+        <script src="common/sidebar/sidebar.component.js"></script>
         <script src="app.js"></script>
 
         <script src="main/main.module.js"></script>
@@ -40,7 +48,7 @@
         <script src="services/comments-storage/comments-storage.module.js"></script>
         <script src="services/comments-storage/comments-storage.service.js"></script>
 
-        <script src="common/ctrlEnter/ctrlEnter.js"></script>
-        <script src="common/scrollToBottom/scrollToBottom.js"></script>
+        <script src="shared/ctrlEnter/ctrlEnter.js"></script>
+        <script src="shared/scrollToBottom/scrollToBottom.js"></script>
     </body>
 </html>
