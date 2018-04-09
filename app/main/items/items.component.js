@@ -2,8 +2,8 @@
 
 angular.module('items')
     .component('items', {
-        templateUrl: 'main/items/items.html',
-        css: 'main/items/items.css',
+        templateUrl: 'app/main/items/items.html',
+        css: 'app/main/items/items.css',
         controller: ItemsController,
         bindings: {
             selectedItem: '=',
@@ -11,16 +11,16 @@ angular.module('items')
         }
     });
 
-ItemsController.$inject = ['$scope', 'itemsStorageService'];
+ItemsController.$inject = ['$scope', 'itemsStorageService', 'selectedItemStorage'];
 
-function ItemsController($scope, itemsStorageService) {
+function ItemsController($scope, itemsStorageService, selectedItemStorage) {
     let vm = this;
     vm.$onInit = onInit;
     vm.currentItem = '';
     vm.items = [];
 
     function onInit() {
-        vm.items = itemsStorageService.getAll() || [];
+        vm.items = itemsStorageService.getAll();
     }
 
     vm.addItem = function () {
@@ -34,16 +34,18 @@ function ItemsController($scope, itemsStorageService) {
 
     vm.selectItem = function (selectedItem) {
         vm.selectedItem = selectedItem;
-        localStorage.setItem('selectedItem', angular.toJson(selectedItem));
-        vm.itemPositionNumber = vm.items.indexOf(selectedItem)+1;
-        localStorage.setItem('itemPositionNumber', vm.itemPositionNumber);
+        selectedItemStorage.saveSelectedItem(selectedItem);
+        vm.itemPositionNumber = vm.items.indexOf(selectedItem) + 1;
+        selectedItemStorage.saveItemPositionNumber(vm.itemPositionNumber);
     };
 
     vm.deleteItem = function (id) {
-        if (vm.selectedItem && angular.equals(vm.selectedItem.id, id)){
+        if (vm.selectedItem && angular.equals(vm.selectedItem.id, id)) {
             vm.selectedItem = null;
+            selectedItemStorage.removeSelectedItem();
+            selectedItemStorage.removeItemPositionNumber();
         }
-        vm.itemPositionNumber = vm.items.indexOf(vm.selectedItem)+1;
+        vm.itemPositionNumber = vm.items.indexOf(vm.selectedItem) + 1;
         vm.items = vm.items.filter(el => !angular.equals(el.id, id));
         itemsStorageService.removeById(id);
     }

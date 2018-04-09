@@ -19,7 +19,7 @@ function itemsStorageService($window) {
     }
 
     function getAllItemsFromLS() {
-        return angular.fromJson($window.localStorage.getItem(storageKey));
+        return angular.fromJson($window.localStorage.getItem(storageKey)) || [];
     }
 
     function removeItemFromLS(id) {

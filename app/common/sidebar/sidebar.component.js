@@ -2,8 +2,8 @@
     angular
         .module('sidebar')
         .component('sidebar', {
-            templateUrl: 'common/sidebar/sidebar.html',
-            css: 'common/sidebar/sidebar.css',
+            templateUrl: 'app/common/sidebar/sidebar.html',
+            css: 'app/common/sidebar/sidebar.css',
             controller: SideBarController
         });
 

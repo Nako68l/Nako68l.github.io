@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="dairy" >
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Diary App</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+
+        <base href="/">
+
+        <link rel="stylesheet" href="app/app.css">
+
+        <link rel="stylesheet" href="app/main/todo/todo.css">
+        <link rel="stylesheet" href="app/main/items/items.css">
+        <link rel="stylesheet" href="app/main/comments/comments.css">
+
+        <link rel="stylesheet" href="app/common/sidebar/sidebar.css">
+    </head>
+    <body>
+        <div class="container">
+            <sidebar></sidebar>
+            <div ng-view class="view-container"></div>
+        </div>
+
+        <!-- In production use:
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
+        -->
+        <script src="bower_components/angular/angular.js"></script>
+        <script src="bower_components/angular-route/angular-route.js"></script>
+
+        <script src="app/common/sidebar/sidebar.module.js"></script>
+        <script src="app/common/sidebar/sidebar.component.js"></script>
+        <script src="app/app.js"></script>
+
+        <script src="app/main/main.module.js"></script>
+        <script src="app/main/todo/todo.module.js"></script>
+        <script src="app/main/todo/todo.component.js"></script>
+        <script src="app/main/comments/comments.module.js"></script>
+        <script src="app/main/comments/comments.component.js"></script>
+        <script src="app/main/items/items.module.js"></script>
+        <script src="app/main/items/items.component.js"></script>
+
+        <script src="app/services/items-storage/items-storage.module.js"></script>
+        <script src="app/services/items-storage/items-storage.service.js"></script>
+        <script src="app/services/comments-storage/comments-storage.module.js"></script>
+        <script src="app/services/comments-storage/comments-storage.service.js"></script>
+        <script src="app/services/selected-item-storage/selectedItemStorage.module.js"></script>
+        <script src="app/services/selected-item-storage/selectedItemStorage.component.js"></script>
+
+        <script src="app/shared/ctrlEnter/ctrlEnter.js"></script>
+        <script src="app/shared/scrollToBottom/scrollToBottom.js"></script>
+    </body>
+</html>

@@ -12,7 +12,7 @@ function commentsStorageService($window) {
     };
 
     function getAllCommentsForItemFromLS(id) {
-        return angular.fromJson($window.localStorage.getItem(storageKey + '_' + id));
+        return angular.fromJson($window.localStorage.getItem(storageKey + '_' + id))  || [];
     }
 
     function addCommentToItemInLS(itemId, comment) {

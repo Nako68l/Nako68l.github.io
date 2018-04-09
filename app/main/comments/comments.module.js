@@ -1,0 +1,1 @@
+angular.module('comments', ['commentsStorageService', 'selectedItemStorage', 'ctrlEnter', 'scrollToBottom']);
